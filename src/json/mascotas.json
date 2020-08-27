@@ -1,0 +1,35 @@
+[
+    {
+        "id":"123",
+        "cliente":"Jose Pimentel",
+        "mascota":"Sofia",
+        "especie":"Canino",
+        "raza":"Pastor Shetland",
+        "sexo":"Hembra",
+        "esterilizado":"No",
+        "edad":"3 años",
+        "fechaNac":"01 / 02 / 2017",
+        "chip":"0123456789",
+        "numReg":"112233",
+        "image":"perro1.jpg",
+        "pesos":[
+            {
+                "peso": "5 kg",
+                "fecha": "22/08/2020"
+            },
+            {
+                "peso": "5.5 kg",
+                "fecha": "23/08/2020"
+            },
+            {
+                "peso": "4.8 kg",
+                "fecha": "25/08/2020"
+            },
+            {
+                "peso": "5 kg",
+                "fecha": "27/08/2020"
+            }
+        ]
+    }
+]
+    
