@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.MuiTab-textColorInherit.Mui-selected {
+  opacity: 1;
+  background: #e30a63!important;
+  color: #ffffff!important;
+  font-weight: bold;
+}
+
+.PrivateTabIndicator-colorSecondary-24 {
+  background-color: none!important;
+}
+
+

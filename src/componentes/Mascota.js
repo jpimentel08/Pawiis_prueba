@@ -11,15 +11,52 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import dataImport from '../json/mascotas.json'
 import { Button } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  flexGrid2: {
+    display:'flex', 
+    marginTop: theme.spacing(2),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1)
+    },
+
+  },
   table: {
     minWidth: 250,
     width: '85%!important'
   },
+  editarButton: {
+    [theme.breakpoints.down('sm')]: {
+      background:'#dc3318',
+      color:'#ffffff',
+      padding:'7px',
+      fontSize:'0.8em',
+      borderRadius: '10px',
+
+    },
+  },
+  editarTitle: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize:'1rem',
+      alignSelf:'center',
+      color:'#dc3318'
+    },
+  },
+  moreButton: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize:'1rem',
+      textTransform:'none',
+      textDecoration:'underline',
+      color:'#6e4158'
+    },
+  },
+  
   detail: {
     flexGrow: 1,
     marginRight: theme.spacing(2),
@@ -28,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#2f4e72",
     fontWeight: "bold!important",
     fontSize: "1.1rem",
+    [theme.breakpoints.down('sm')]: {
+      fontSize:'1rem'
+    },
   },
   tableCelldetail: {
     flexGrow: 1,
@@ -58,12 +98,19 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "left",
     color: theme.palette.text.secondary,
+    borderRadius:'0px 0px 0px 4px!important'
   },
   paper1: {
     marginTop: theme.spacing(2),
     textAlign: "Left",
 
     color: theme.palette.text.secondary,
+  },
+  paper2: {
+    padding: theme.spacing(2),
+    textAlign: "left",
+    color: theme.palette.text.secondary,
+    borderRadius:'0px 0px 4px 0px!important'
   },
 }));
 
@@ -83,15 +130,15 @@ const Mascota = () => {
   const classes = useStyles();
   const [mascotas, setMascotas] = useState();
   const [ pesos, setPesos ] = useState();
-  const [ textButton, setTextButton ] = useState('mas')
+  const [ textButton, setTextButton ] = useState('más')
 
   const handleClickMore = () => {
-    if(textButton === 'mas'){
+    if(textButton === 'más'){
       setPesos(dataImport[0].pesos)
       setTextButton('menos')
     }else{
       seePesos()
-      setTextButton('mas')
+      setTextButton('más')
     }
     
   }
@@ -113,10 +160,9 @@ const Mascota = () => {
   
 
   return (
-    <div className={classes.root}>
-        
+    <div className={classes.root}> 
       <Grid  container spacing={0}>
-        <Grid item xs={12} sm={6}>  
+        <Grid item xs={6} sm={6}>  
         {mascotas ? mascotas.map((mascota) => (
           <Paper key={mascota.id} className={classes.paper}>
             <Typography>Especie:</Typography>
@@ -139,10 +185,10 @@ const Mascota = () => {
             <Typography>Esterilizado:</Typography>
             <Typography className={classes.detail}></Typography>
           </Paper>
-           };
+           }
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>
+        <Grid item xs={6} sm={6}>
+          <Paper className={classes.paper2}>
             <Typography>Edad:</Typography>
             <Typography className={classes.detail}>3 Años</Typography>
             <Typography>Fecha nacimiento:</Typography>
@@ -177,11 +223,19 @@ const Mascota = () => {
                   </TableRow>
                 )):<></>}
               </TableBody>
-              {dataImport[0].pesos.length > 2 ? <Button onClick={handleClickMore}>Ver {textButton}</Button> : <></>}
+              {dataImport[0].pesos.length > 2 ? <Button className={classes.moreButton}  onClick={handleClickMore}>Ver {textButton}</Button> : <></>}
             </Table>
           </TableContainer>
         </Paper>
       </Grid>
+      <Grid className={classes.flexGrid2}  item xs={12}>
+        <IconButton>
+          <AddIcon className={classes.editarButton} /> 
+        </IconButton>
+      <Typography className={classes.editarTitle}  edge="start" variant="body1">Editar datos</Typography>
+      </Grid>
+
+      
       
     </div>
   );

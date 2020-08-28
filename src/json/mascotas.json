@@ -14,19 +14,19 @@
         "image":"perro1.jpg",
         "pesos":[
             {
-                "peso": "5 kg",
+                "peso": "5",
                 "fecha": "22/08/2020"
             },
             {
-                "peso": "5.5 kg",
+                "peso": "5.5",
                 "fecha": "23/08/2020"
             },
             {
-                "peso": "4.8 kg",
+                "peso": "4.8",
                 "fecha": "25/08/2020"
             },
             {
-                "peso": "5 kg",
+                "peso": "5",
                 "fecha": "27/08/2020"
             }
         ]
